@@ -2,9 +2,10 @@ package za.ca.cput.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import za.ca.cput.domain.Schedule;
+import za.ca.cput.domain.Notifications;
+
+import java.util.List;
 
 @Repository
-public interface IScheduleRepository extends JpaRepository<Schedule, Long> {
+public interface INotificationsRepository extends  JpaRepository<Notifications, Long>{
 }
-

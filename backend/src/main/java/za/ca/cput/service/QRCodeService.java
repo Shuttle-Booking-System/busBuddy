@@ -7,7 +7,7 @@ import za.ca.cput.repository.QRCodeRepository;
 import java.util.Optional;
 
 @Service
-public class QRCodeService implements IQRCodeService {
+public class QRCodeService implements IService<QRCode, Long> {
 
     private final QRCodeRepository repository;
 
@@ -35,7 +35,12 @@ public class QRCodeService implements IQRCodeService {
     }
 
     @Override
-    public void delete(Long id) {
-        repository.deleteById(id);
+    public boolean delete(Long id) {
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+            return true;
+        }
+        return false;
+
     }
 }
